@@ -1,0 +1,2 @@
+Lizenzen:
+https://opensource.org/licenses
