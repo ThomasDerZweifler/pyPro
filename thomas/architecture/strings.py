@@ -7,18 +7,33 @@ person = {
 }
 
 class Person :
-    #name = "name"
+    name = "name"
     surename = "surename"
+    x = 6
+    __y = 2 #private
 
-    #def __init__(self):
-        #self.name = "default"
+    def __init__(self, 
+        name = "default name", 
+        surename = "default surename" ) :
+        self.name = name
+        self.surename = surename
 
-    def __init__(self, var = "default"):
-        self.name = var+ " Thomas"
-        surename = var+ " Funke"
+    def toString(self):
+        return Person.name, Person.surename
 
-    def toString():
-        return name, surename
+    @staticmethod
+    def getSttaticX(): 
+        return Person.x
+
+
+    @classmethod
+    def getClsZ(cls): 
+        return Person.__y
+
+    @classmethod
+    def getClsY(cls): 
+        Person.getClsZ()
+        return Person.__y
 
 def toString():
     return s1, s2
