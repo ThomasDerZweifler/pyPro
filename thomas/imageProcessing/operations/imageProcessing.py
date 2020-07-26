@@ -1,8 +1,16 @@
 from PIL import Image as img
 
+def halftoning(im):
+    rgb_im = im.convert('RGB')
+    rgb_im_halftoning = img.new('RGB', im.size, "white")
+
+    return rgb_im_halftoning
+
+
+
 def invert(im) :
     rgb_im = im.convert('RGB')
-    rgb_im_inverse = img.new('RGB', im.size, (0,0,0))
+    rgb_im_inverse = img.new('RGB', im.size, "black")
     y = 0
     while y < im.height:
         x = 0
@@ -23,7 +31,7 @@ def invert(im) :
 
 def gray(im) :
     rgb_im = im.convert('RGB')
-    rgb_im_gray = img.new('RGB', im.size, (0,0,0))
+    rgb_im_gray = img.new('RGB', im.size, "black")
     y = 0
     while y < im.height:
         x = 0
@@ -31,7 +39,10 @@ def gray(im) :
 
             r, g, b = rgb_im.getpixel((x, y))
 
-            gray = int((r + g + b) / 3)
+            #gray = int((r + g + b) / 3)
+
+            gray = int((r * 0.299) + (g * 0.587) + (b * 0.114))
+
             rgb_im_gray.putpixel((x, y), (gray, gray, gray))
 
             x = x+1
@@ -41,7 +52,7 @@ def gray(im) :
 
 def alpha(im, alpha) :
     rgb_im = im.convert('RGB')
-    rgb_im_alpha = img.new('RGBA', im.size, (0,0,0))
+    rgb_im_alpha = img.new('RGBA', im.size, "black")
     y = 0
     while y < im.height:
         x = 0
@@ -58,7 +69,7 @@ def alpha(im, alpha) :
 
 def interlace(im) :
     rgb_im = im.convert('RGB')
-    rgb_im_interlace = img.new('RGB', im.size, (0,0,0))
+    rgb_im_interlace = img.new('RGB', im.size, "black")
     y = 0
     while y < im.height:
         x = 0
@@ -101,7 +112,7 @@ def reduce(im) :
 
 def mosaic(im) :
     rgb_im = im.convert('RGB')
-    rgb_im_mosaic = img.new('RGB', im.size, (0,0,0))
+    rgb_im_mosaic = img.new('RGB', im.size, "black")
     y = 0
     while y < im.height:
         x = 0
