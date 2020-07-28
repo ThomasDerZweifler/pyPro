@@ -1,3 +1,5 @@
+# python -m pip install --user numpy scipy matplotlib ipython jupyter pandas sympy nose
+
 import numpy as np
 from scipy import misc
 import matplotlib.pyplot as plt
