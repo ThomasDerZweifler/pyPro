@@ -1,6 +1,9 @@
 import sys
 from PyQt5.QtWidgets import QMainWindow, QAction, qApp, QMenu, QTextEdit, QApplication, QWidget, QInputDialog, QLineEdit, QFileDialog
 from PyQt5.QtGui import QIcon
+from PIL import Image as img
+
+import operations.imageProcessing as imgProc
 
 class App(QMainWindow):
 
@@ -9,8 +12,8 @@ class App(QMainWindow):
         self.title = 'PyQt5 file dialogs - pythonspot.com'
         self.left = 10
         self.top = 10
-        self.width = 640
-        self.height = 480
+        self.width = 1240
+        self.height = 800
         self.initUI()
     
     def initUI(self):
@@ -53,7 +56,10 @@ class App(QMainWindow):
         options |= QFileDialog.DontUseNativeDialog
         fileName, _ = QFileDialog.getOpenFileName(self,"QFileDialog.getOpenFileName()", "","All Files (*);;Python Files (*.py)", options=options)
         if fileName:
-            print(fileName)
+            im = img.open("img/cinzano.ppm")
+            print( str(im.width) + ", " + str(im.height))
+            im.show()
+            imgProc.invert(im).show()
     
     def openFileNamesDialog(self):
         options = QFileDialog.Options()
