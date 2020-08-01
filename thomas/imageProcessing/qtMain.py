@@ -1,6 +1,6 @@
 import sys
-from PyQt5.QtWidgets import QMainWindow, QAction, qApp, QMenu, QTextEdit, QApplication, QWidget, QInputDialog, QLineEdit, QFileDialog
-from PyQt5.QtGui import QIcon
+from PyQt5.QtWidgets import QMainWindow, QAction, qApp, QMenu, QLabel, QApplication, QWidget, QInputDialog, QLineEdit, QFileDialog
+from PyQt5.QtGui import QIcon, QPixmap
 from PIL import Image as img
 
 import operations.imageProcessing as imgProc
@@ -17,8 +17,6 @@ class App(QMainWindow):
         self.initUI()
     
     def initUI(self):
-        textEdit = QTextEdit()
-        self.setCentralWidget(textEdit)
 
         # get icons from here:  https://material.io/resources/icons/?icon=perm_media&style=baseline
 
@@ -31,6 +29,9 @@ class App(QMainWindow):
         exitAct.setShortcut('Ctrl+Q')
         exitAct.setStatusTip('Exit application')
         exitAct.triggered.connect(self.close)
+
+        self.label = QLabel(self)
+        self.setCentralWidget(self.label)
 
         self.statusBar()
 
@@ -56,10 +57,8 @@ class App(QMainWindow):
         options |= QFileDialog.DontUseNativeDialog
         fileName, _ = QFileDialog.getOpenFileName(self,"QFileDialog.getOpenFileName()", "","All Files (*);;Python Files (*.py)", options=options)
         if fileName:
-            im = img.open("img/cinzano.ppm")
-            print( str(im.width) + ", " + str(im.height))
-            im.show()
-            imgProc.invert(im).show()
+            pixmap = QPixmap(fileName)
+            self.label.setPixmap(pixmap)
     
     def openFileNamesDialog(self):
         options = QFileDialog.Options()
