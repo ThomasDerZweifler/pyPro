@@ -1,7 +1,8 @@
 import sys
-from PyQt5.QtWidgets import QMainWindow, QAction, qApp, QMenu, QLabel, QApplication, QWidget, QInputDialog, QLineEdit, QFileDialog
+from PyQt5.QtWidgets import QMainWindow, QScrollArea, QAction, qApp, QMenu, QHBoxLayout, QLabel, QApplication, QWidget, QInputDialog, QLineEdit, QFileDialog
 from PyQt5.QtGui import QIcon, QPixmap
 from PIL import Image as img
+from PIL.ImageQt import ImageQt
 
 import operations.imageProcessing as imgProc
 
@@ -9,7 +10,7 @@ class App(QMainWindow):
 
     def __init__(self):
         super().__init__()
-        self.title = 'PyQt5 file dialogs - pythonspot.com'
+        self.title = 'PyQt5 image processing'
         self.left = 10
         self.top = 10
         self.width = 1240
@@ -30,8 +31,25 @@ class App(QMainWindow):
         exitAct.setStatusTip('Exit application')
         exitAct.triggered.connect(self.close)
 
-        self.label = QLabel(self)
-        self.setCentralWidget(self.label)
+        self.originalImg = QLabel(self)
+        scroll = QScrollArea()
+        scroll.setWidgetResizable(True)
+        scroll.setWidget(self.originalImg)
+
+        self.processedImg = QLabel(self)
+        scroll1 = QScrollArea()
+        scroll1.setWidgetResizable(True)
+        scroll1.setWidget(self.processedImg)
+
+        layout= QHBoxLayout()
+
+        layout.addWidget(scroll)
+        layout.addWidget(scroll1)
+
+        widget = QWidget()
+        widget.setLayout(layout)
+
+        self.setCentralWidget(widget)
 
         self.statusBar()
 
@@ -57,8 +75,14 @@ class App(QMainWindow):
         options |= QFileDialog.DontUseNativeDialog
         fileName, _ = QFileDialog.getOpenFileName(self,"QFileDialog.getOpenFileName()", "","All Files (*);;Python Files (*.py)", options=options)
         if fileName:
-            pixmap = QPixmap(fileName)
-            self.label.setPixmap(pixmap)
+            im = img.open(fileName)
+            qim = ImageQt(im)
+            pixmap = QPixmap.fromImage(qim)
+            self.originalImg.setPixmap(pixmap)
+
+            qim2 = ImageQt(imgProc.gray(im))
+            pixmap2 = QPixmap.fromImage(qim2)
+            self.processedImg.setPixmap(pixmap2)
     
     def openFileNamesDialog(self):
         options = QFileDialog.Options()
