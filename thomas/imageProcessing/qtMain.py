@@ -6,6 +6,8 @@ from PIL.ImageQt import ImageQt
 
 import operations.imageProcessing as imgProc
 
+import operations.qtImageProcessing as qtImgProc
+
 class App(QMainWindow):
 
     def __init__(self):
@@ -80,9 +82,16 @@ class App(QMainWindow):
             pixmap = QPixmap.fromImage(qim)
             self.originalImg.setPixmap(pixmap)
 
-            qim2 = ImageQt(imgProc.gray(im))
-            pixmap2 = QPixmap.fromImage(qim2)
-            self.processedImg.setPixmap(pixmap2)
+            pixmap1 = QPixmap(fileName)
+            image1 = pixmap1.toImage()
+            image1a = qtImgProc.invert(image1)
+            pixmap1a = QPixmap(image1a)
+            self.processedImg.setPixmap(pixmap1a)
+
+            # doesn't work under Windows
+            #qim2 = ImageQt(imgProc.gray(im))
+            #pixmap2 = QPixmap.fromImage(qim2)
+            #self.processedImg.setPixmap(pixmap2)
     
     def openFileNamesDialog(self):
         options = QFileDialog.Options()
