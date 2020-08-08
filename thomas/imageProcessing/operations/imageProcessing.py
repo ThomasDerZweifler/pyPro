@@ -6,7 +6,25 @@ def halftoning(im):
 
     return rgb_im_halftoning
 
+def flip_horizontal(im):
+    rgb_im = im.convert('RGB')
+    rgb_im_flipped = img.new('RGB', im.size, "white")
 
+    y = 0
+    while y < im.height:
+        x = 0
+        while x < im.width: 
+
+            r, g, b = rgb_im.getpixel((x, y))
+
+            newX = im.width-1 - x
+
+            rgb_im_flipped.putpixel((newX, y), (r, g, b))
+
+            x = x+1
+        y = y+1
+
+    return rgb_im_flipped
 
 def invert(im) :
     rgb_im = im.convert('RGB')
