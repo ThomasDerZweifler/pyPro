@@ -82,11 +82,7 @@ class App(QMainWindow):
             pixmap = QPixmap.fromImage(qim)
             self.originalImg.setPixmap(pixmap)
 
-            pixmap1 = QPixmap(fileName)
-            image1 = pixmap1.toImage()
-            image1a = qtImgProc.invert(image1)
-            pixmap1a = QPixmap(image1a)
-            self.processedImg.setPixmap(pixmap1a)
+            self.imageProcessing(pixmap)
 
             # doesn't work under Windows
             #qim2 = ImageQt(imgProc.gray(im))
@@ -106,6 +102,19 @@ class App(QMainWindow):
         fileName, _ = QFileDialog.getSaveFileName(self,"QFileDialog.getSaveFileName()","","All Files (*);;Text Files (*.txt)", options=options)
         if fileName:
             print(fileName)
+
+    def imageProcessing(self, pixmap):
+        image = pixmap.toImage()
+
+        #imageA = qtImgProc.invert(image)
+
+        #imageA = qtImgProc.flip_horizontal(image)
+
+        imageA = qtImgProc.interlace(image)
+        
+        pixmapA = QPixmap(imageA)
+        self.processedImg.setPixmap(pixmapA)
+
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
