@@ -44,3 +44,74 @@ def interlace(qImage) :
             x = x+1
         y = y+2
     return rgb_im_interlace
+
+def gray(qImage) :
+    rgb_im_gray = qImage.copy()
+    width = qImage.width()
+    y = 0
+    while y < qImage.height():
+        x = 0
+        while x < width: 
+            color = QColor.fromRgb(qImage.pixel(x, y))
+            r = color.red()
+            g = color.green()
+            b = color.blue()
+
+            #gray = int((r + g + b) / 3)
+
+            gray = int((r * 0.299) + (g * 0.587) + (b * 0.114))
+
+            newColor = QColor(gray,gray,gray)
+            rgb_im_gray.setPixel(x, y, newColor.rgba())
+            x = x+1
+        y = y+1
+
+    return rgb_im_gray
+
+def reduce(qImage) :
+    rgb_im_reduce = qImage.copy()
+    width=qImage.width()
+    y = 0
+    yOut = 0
+    while y < qImage.height():
+        x = 0
+        xOut = int(width/2)
+        while x < width: 
+
+            color = QColor.fromRgb(qImage.pixel(x, y))
+            rgb_im_reduce.setPixel(xOut, yOut, color.rgba())
+
+            x = x+1
+
+            if x % 2 == 0 :
+                xOut = xOut + 1
+
+        y = y+1
+
+        if y % 2  == 0 :
+            yOut = yOut + 1
+
+    return rgb_im_reduce
+
+def mosaic(qImage, pixelSize) :
+    rgb_im_mosaic = qImage.copy()
+    width=qImage.width()
+
+    y = 0
+    while y < qImage.height():
+        if y % pixelSize == 0:
+            ry = y
+
+        x = 0
+        while x < width: 
+            if x % pixelSize == 0:
+                rx = x
+                color = QColor.fromRgb(rgb_im_mosaic.pixel(rx, ry))
+                
+            rgb_im_mosaic.setPixel(x, y, color.rgba())
+
+            x = x+1
+        
+        y = y+1
+
+    return rgb_im_mosaic

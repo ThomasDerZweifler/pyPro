@@ -110,8 +110,15 @@ class App(QMainWindow):
 
         #imageA = qtImgProc.flip_horizontal(image)
 
-        imageA = qtImgProc.interlace(image)
-        
+        #imageA = qtImgProc.interlace(image)
+
+        #imageA = qtImgProc.gray(image)
+
+        #imageA = qtImgProc.reduce(image)
+
+        imageA = qtImgProc.mosaic(image,4)
+
+
         pixmapA = QPixmap(imageA)
         self.processedImg.setPixmap(pixmapA)
 
