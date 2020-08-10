@@ -1,5 +1,5 @@
 import sys
-from PyQt5.QtWidgets import QMainWindow, QScrollArea, QAction, qApp, QMenu, QHBoxLayout, QLabel, QApplication, QWidget, QInputDialog, QLineEdit, QFileDialog
+from PyQt5.QtWidgets import QMainWindow, QScrollArea, QAction, qApp, QMenu, QHBoxLayout, QLabel, QComboBox, QApplication, QWidget, QInputDialog, QLineEdit, QFileDialog
 from PyQt5.QtGui import QIcon, QPixmap
 from PIL import Image as img
 from PIL.ImageQt import ImageQt
@@ -59,9 +59,14 @@ class App(QMainWindow):
         fileMenu = menubar.addMenu('&File')
         fileMenu.addAction(exitAct)
 
+        self.cb = QComboBox()
+        self.cb.addItems(["flip", "gray", "invert", "interlace", "reduce", "mosaic"])
+        self.cb.currentIndexChanged.connect(self.selectionchange)
+
         toolbar = self.addToolBar('Tools')
         toolbar.addAction(openAct)
         toolbar.addAction(exitAct)
+        toolbar.addWidget(self.cb)
 
         self.setWindowTitle(self.title)
         self.setGeometry(self.left, self.top, self.width, self.height)
@@ -72,17 +77,23 @@ class App(QMainWindow):
         
         self.show()
     
+    def selectionchange(self,i):
+        self.imageProcessing(self.pixmap,self.cb.itemText(i))
+
+
     def openFileNameDialog(self):
         options = QFileDialog.Options()
         options |= QFileDialog.DontUseNativeDialog
-        fileName, _ = QFileDialog.getOpenFileName(self,"QFileDialog.getOpenFileName()", "","All Files (*);;Python Files (*.py)", options=options)
-        if fileName:
-            im = img.open(fileName)
+        self.fileName, _ = QFileDialog.getOpenFileName(self,"QFileDialog.getOpenFileName()", "","All Files (*);;Python Files (*.py)", options=options)
+        if self.fileName:
+            im = img.open(self.fileName)
             qim = ImageQt(im)
-            pixmap = QPixmap.fromImage(qim)
-            self.originalImg.setPixmap(pixmap)
+            self.pixmap = QPixmap.fromImage(qim)
+            self.originalImg.setPixmap(self.pixmap)
 
-            self.imageProcessing(pixmap)
+            self.originalImg.setStatusTip(self.fileName)
+
+            self.imageProcessing(self.pixmap,self.cb.currentText())
 
             # doesn't work under Windows
             #qim2 = ImageQt(imgProc.gray(im))
@@ -103,24 +114,27 @@ class App(QMainWindow):
         if fileName:
             print(fileName)
 
-    def imageProcessing(self, pixmap):
+    def imageProcessing(self, pixmap, operator):
         image = pixmap.toImage()
 
-        #imageA = qtImgProc.invert(image)
+        imageA = image
 
-        #imageA = qtImgProc.flip_horizontal(image)
-
-        #imageA = qtImgProc.interlace(image)
-
-        #imageA = qtImgProc.gray(image)
-
-        #imageA = qtImgProc.reduce(image)
-
-        imageA = qtImgProc.mosaic(image,4)
-
+        if operator == "flip":
+            imageA = qtImgProc.flip_horizontal(image)
+        elif operator == "gray":
+            imageA = qtImgProc.gray(image)
+        elif operator == "invert":
+            imageA = qtImgProc.invert(image)
+        elif operator == "interlace":
+            imageA = qtImgProc.interlace(image)
+        elif operator == "reduce":
+            imageA = qtImgProc.reduce(image)
+        elif operator == "mosaic":
+            imageA = qtImgProc.mosaic(image,4)
 
         pixmapA = QPixmap(imageA)
         self.processedImg.setPixmap(pixmapA)
+        self.processedImg.setStatusTip(self.fileName)
 
 
 if __name__ == '__main__':

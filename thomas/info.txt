@@ -9,3 +9,6 @@ https://docs.github.com/en/github/using-git/caching-your-github-credentials-in-g
 
 https://softwaredevelopmentperestroika.wordpress.com/2014/02/11/image-processing-with-python-numpy-scipy-image-convolution/
 
+------- image manipulator tools --------
+
+https://opensource.com/article/19/3/python-image-manipulation-tools
