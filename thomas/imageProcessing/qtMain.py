@@ -1,6 +1,7 @@
 import sys
+
 from PyQt5.QtWidgets import QMainWindow, QScrollArea, QAction, qApp, QMenu, QHBoxLayout, QLabel, QComboBox, QApplication, QWidget, QInputDialog, QLineEdit, QFileDialog
-from PyQt5.QtGui import QIcon, QPixmap
+from PyQt5.QtGui import QIcon, QColor, QPixmap, QPainter
 from PIL import Image as img
 from PIL.ImageQt import ImageQt
 
@@ -60,7 +61,7 @@ class App(QMainWindow):
         fileMenu.addAction(exitAct)
 
         self.cb = QComboBox()
-        self.cb.addItems(["flip", "gray", "invert", "interlace", "reduce", "mosaic"])
+        self.cb.addItems(["flip", "gray", "invert", "interlace", "reduce", "mosaic", "rotate"])
         self.cb.currentIndexChanged.connect(self.selectionchange)
 
         toolbar = self.addToolBar('Tools')
@@ -117,25 +118,37 @@ class App(QMainWindow):
     def imageProcessing(self, pixmap, operator):
         image = pixmap.toImage()
 
-        imageA = image
+        self.imageA = image
 
         if operator == "flip":
-            imageA = qtImgProc.flip_horizontal(image)
+            self.imageA = qtImgProc.flip_horizontal(image)
         elif operator == "gray":
-            imageA = qtImgProc.gray(image)
+            self.imageA = qtImgProc.gray(image)
         elif operator == "invert":
-            imageA = qtImgProc.invert(image)
+            self.imageA = qtImgProc.invert(image)
         elif operator == "interlace":
-            imageA = qtImgProc.interlace(image)
+            self.imageA = qtImgProc.interlace(image)
         elif operator == "reduce":
-            imageA = qtImgProc.reduce(image)
+            self.imageA = qtImgProc.reduce(image)
         elif operator == "mosaic":
-            imageA = qtImgProc.mosaic(image,4)
+            self.imageA = qtImgProc.mosaic(image,4)
+        elif operator == "rotate":
+            self.imageA = qtImgProc.rotate(image,45)
 
-        pixmapA = QPixmap(imageA)
-        self.processedImg.setPixmap(pixmapA)
+        self.pixmapA = QPixmap(self.imageA)
+        self.processedImg.setPixmap(self.pixmapA)
         self.processedImg.setStatusTip(self.fileName)
 
+    def mouseMoveEvent(self, e):
+        painter = QPainter(self.pixmapA)
+        p = painter.pen()
+        p.setWidth(10)
+        p.setColor(QColor(255,0,0))
+        painter.setPen(p)
+
+        painter.drawPoint(e.x(), e.y())
+
+        self.update()
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)

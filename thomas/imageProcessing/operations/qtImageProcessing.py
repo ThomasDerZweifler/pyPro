@@ -1,5 +1,15 @@
 from PyQt5.QtGui import QImage, QColor
 
+import sympy as sp
+def tand(x):
+    return sp.tan(x * sp.pi / 180)
+
+def sind(x):
+    return sp.sin(x * sp.pi / 180)
+
+def cosd(x):
+    return sp.cos(x * sp.pi / 180)
+
 def invert(qImage) :
     rgb_im_inverse = qImage.copy()
     width = qImage.width()
@@ -115,3 +125,25 @@ def mosaic(qImage, pixelSize) :
         y = y+1
 
     return rgb_im_mosaic
+
+def rotate(qImage, angle) :
+    rgb_im_rotated = qImage.copy()
+    rgb_im_rotated.fill(0)
+    width = qImage.width()
+    height = qImage.height()
+    y = 1
+    while y < height:
+        x = 1
+        while x < width: 
+
+            inputRow = y * cosd(angle) - x * sind(angle)
+            inputCol = y * sind(angle) + x * cosd(angle)
+
+            if inputRow >= 0 and inputRow < height and inputCol >= 0 and inputCol < width:
+                color = QColor.fromRgb(qImage.pixel(inputCol, inputRow))
+                rgb_im_rotated.setPixel(x, y, color.rgba())
+
+            x = x+5
+        y = y+5
+    return rgb_im_rotated
+ 
