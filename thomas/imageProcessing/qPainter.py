@@ -48,7 +48,9 @@ class Window(QtWidgets.QLabel):
         self.my_painter.drawRect(300, 300,180, 180)
         self.my_painter.end() 
 
-    # def mouseMoveEvent(self, e):
+    def mouseMoveEvent(self, e):
+
+        print(str(e.x()) + "; " + str(e.x()))
 
         # queue the points and lets draw in pantEvent only
 
