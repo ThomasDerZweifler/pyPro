@@ -1,6 +1,6 @@
-from PyQt5.QtWidgets import QMainWindow, QApplication, QMenu, QMenuBar, QAction, QFileDialog
-from PyQt5.QtGui import QIcon, QImage, QPainter, QPen, QBrush
-from PyQt5.QtCore import Qt, QPoint
+from PyQt5.QtWidgets import *
+from PyQt5.QtGui import *
+from PyQt5.QtCore import *
 import sys
 import random
 
@@ -93,16 +93,35 @@ class Window(QMainWindow):
 
     def mouseMoveEvent(self, event):
         if(event.buttons() & Qt.LeftButton) & self.drawing:
-            painter = QPainter(self.image)
-            painter.setPen(QPen(self.brushColor, self.brushSize, Qt.SolidLine, Qt.RoundCap, Qt.RoundJoin))
-            painter.drawLine(self.lastPoint, event.pos())
+            self.painter = QPainter(self.image)
+            self.painter.setPen(QPen(self.brushColor, self.brushSize, Qt.SolidLine, Qt.RoundCap, Qt.RoundJoin))
+            self.painter.drawLine(self.lastPoint, event.pos())
             self.lastPoint = event.pos()
             
             xPos = random.randrange(1, 700)
             yPos = random.randrange(1, 700)
-            painter.drawPoint(xPos, yPos)
+            self.painter.drawPoint(xPos, yPos)
         
+            self.draw_something()
             self.update()
+
+    def draw_something(self):
+        from random import randint, choice
+        colors = ['#FFD141', '#376F9F', '#0D1F2D', '#E9EBEF', '#EB5160']
+
+        pen = QPen()
+        pen.setWidth(3)
+        self.painter.setPen(pen)
+
+        for n in range(10000):
+            # pen = painter.pen() you could get the active pen here
+            pen.setColor(QColor(choice(colors)))
+            self.painter.setPen(pen)
+            self.painter.drawPoint(
+                400+randint(-200, 200),  # x
+                350+randint(-200, 200)   # y
+                )
+        self.painter.end()
 
     def mouseReleaseEvent(self, event):
 
