@@ -6,6 +6,8 @@ import random
 
 # https://codeloop.org/python-gui-how-to-create-paint-application-in-pyqt5/
 
+# https://www.learnpyqt.com/pyqt5-book/
+
 class Window(QMainWindow):
     def __init__(self):
         super().__init__()
