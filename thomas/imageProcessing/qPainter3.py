@@ -102,7 +102,7 @@ class Window(QMainWindow):
             yPos = random.randrange(1, 700)
             painter.drawPoint(xPos, yPos)
         
-             self.update()
+            self.update()
 
     def mouseReleaseEvent(self, event):
 
