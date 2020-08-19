@@ -3,6 +3,8 @@ from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 
+# https://wiki.python.org/moin/PyQt5/Threading%2C_Signals_and_Slots
+
 class Window(QWidget):
     def __init__(self, parent = None):
         QWidget.__init__(self, parent)        
