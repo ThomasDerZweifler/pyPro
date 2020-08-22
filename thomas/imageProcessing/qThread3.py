@@ -90,11 +90,6 @@ class Worker(QThread):
 
                 painter = QPainter()
                 painter.begin(image)
-    
-                red = y % 255
-                green = x % 255
-                blue = x % 255
-                alpha = 255
 
                 c = img.pixel(x,y)
                 color = QColor(c)
