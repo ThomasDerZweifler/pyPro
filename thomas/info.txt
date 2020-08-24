@@ -12,3 +12,6 @@ https://softwaredevelopmentperestroika.wordpress.com/2014/02/11/image-processing
 ------- image manipulator tools --------
 
 https://opensource.com/article/19/3/python-image-manipulation-tools
+
+------- JSON ----------
+https://github.com/CoreyMSchafer/code_snippets
