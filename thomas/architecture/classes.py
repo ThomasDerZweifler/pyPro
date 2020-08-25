@@ -8,13 +8,12 @@ for dirpath, dirnames, filenames in os.walk("plugin/"):
 
         for filename in filenames:
             module = __import__("plugin." + filename[0:-3], fromlist=[''])
-            print( "name: " + module.__name__)
+            print( "name of module: " + module.__name__)
 
             #print(dir(module))
 
             c = getattr(module,cls)
-            print(c.identifier())
+            print("id: " + c.identifier())
             if(c.__name__ == cls):
-                print(module)
-                print(c().version())
+                print("version: " + c().version())
 
