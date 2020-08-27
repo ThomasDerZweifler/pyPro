@@ -2,6 +2,8 @@ import sys
 from PyQt5.QtWidgets import (QWidget, QPushButton, QApplication, 
                              QGridLayout, QLCDNumber)
 
+# sudo apt-get install python3-pyqt5
+
 class Example(QWidget):
     def __init__(self):
         super().__init__()
