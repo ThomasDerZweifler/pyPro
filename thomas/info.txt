@@ -15,3 +15,6 @@ https://opensource.com/article/19/3/python-image-manipulation-tools
 
 ------- code snippets --------
 https://github.com/CoreyMSchafer/code_snippets
+
+------- Cython -------
+https://cython.readthedocs.io/en/latest/src/tutorial/cython_tutorial.html
