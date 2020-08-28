@@ -21,41 +21,6 @@ def sind(x):
 def cosd(x):
     return sp.cos(x * sp.pi / 180)
 
-class MyWidget(QWidget):
-    def __init__(self, parent=None): 
-        super().__init__(parent)
-        self.title = 'PyQt5 painter'
-        self.grafik = QImage("img/cinzano.ppm")
-        self.copy = self.grafik.copy()
-        self.copy.fill(0)
-        self.ziel = QRect(40, 40, 400, 400)
-
-    def rot(self, angle):
-        self.rotate(self.grafik, self.copy, angle)
-
-    def rotate(self, source, dest, angle) :
-        width = source.width()
-        height = source.height()
-        y = 1
-        while y < height:
-            x = 1
-            while x < width: 
-
-                inputRow = y * cosd(angle) - x * sind(angle)
-                inputCol = y * sind(angle) + x * cosd(angle)
-
-                if inputRow >= 0 and inputRow < height and inputCol >= 0 and inputCol < width:
-                    color = QColor.fromRgb(source.pixel(inputCol, inputRow))
-                    dest.setPixel(x, y, color.rgba())
-                    super().repaint()
-
-                x = x+5
-            y = y+5
-
-    def paintEvent(self, event):
-        painter = QPainter(self)
-        painter.drawImage(self.ziel, self.copy)
-
 class App(QMainWindow):
 
     def __init__(self):
@@ -93,15 +58,6 @@ class App(QMainWindow):
 
         layout.addWidget(scroll)
         layout.addWidget(scroll1)
-
-        self.myWidget = MyWidget()
-        self.myWidget.resize(400, 400) 
-
-        scroll2 = QScrollArea()
-        scroll2.setWidgetResizable(True)
-        scroll2.setWidget(self.myWidget)
-
-        layout.addWidget(scroll2)
 
         widget = QWidget()
         widget.setLayout(layout)
