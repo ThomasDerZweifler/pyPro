@@ -37,3 +37,19 @@ print( num.toString())
 print("str(num.toString()[0]); str(num.toString()[1]) : " + str(num.toString()[0]) + "; " + str(num.toString()[1]))
 
 print(num.n1 + num.n2)
+
+s = {"a"}
+s.add("Hello")
+s.add("World!")
+s.add("same")
+s.add("same")
+
+s1 = {"s1_a", "World", "a", "s1_d"}
+
+print(s.intersection(s1))
+
+print("difference: " + str(s.difference(s1)))
+
+print("symmetric_difference: " + str(s.symmetric_difference(s1)))
+
+print("isdisjoint: " + str(s.isdisjoint(s1)))
