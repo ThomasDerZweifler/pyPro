@@ -1,12 +1,11 @@
 f = open("ringelnatz.txt", "r")
 
-lines = f.readlines()
-
 words = []
 
-for line in lines:
+for line in f.readlines():
     fwords = line.strip().split(" ")
     for word in fwords:
+        word = word.replace('(','').replace(')','')
         if len(word) > 0:
             words.append(word)
 
