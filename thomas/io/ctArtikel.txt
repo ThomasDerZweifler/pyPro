@@ -1,0 +1,114 @@
+zu ix.de
+Lesezeichen
+Profil
+iX 9/2020
+S. 112
+WISSEN
+ DIGITALISIERUNG
+
+Digitalisierung beschleunigen mit Capabilities
+Besser verstehen
+Wolf Pfannenstiel
+An der Digitalisierung führt kein Weg vorbei, erst recht nicht seit Corona. Um entsprechende Vorhaben im Unternehmen erfolgreich umzusetzen, sind Capabilities ein vielseitig einsetzbares Hilfsmittel.
+
+-TRACT
+Business Capabilities können Unternehmen beim Umsetzen von Digitali­sierungsvorhaben gute Dienste leisten.
+Sie schließen die Lücke zwischen Geschäft und Technik und geben einen zeitlich stabilen und für alle Beteiligten verständlichen Ordnungsrahmen vor.
+Capabilities beschreiben die essenziellen Fähigkeiten eines Unternehmens, etwa die Rechnungserstellung. In Prozessen hingegen geht es um die konkrete Umsetzung.
+Viele Unternehmen tun sich mit der Digitalisierung schwer. Zahlreiche Vorhaben konzentrieren sich zunächst ausschließlich auf die Technik und es bleibt manchmal völlig unklar, was man überhaupt erreichen will. „Wir brauchen eine Blockchain“ oder „Wir müssen in die Cloud“ sind solche Fälle. Selbst wenn es eine fachlich motivierte Strategie gibt, ist die oft so vage und abstrakt formuliert, dass sie während der Umsetzung schnell in Beliebigkeit versinkt. Sind Techniken erst einmal gesetzt, geraten sie leicht zum sprichwörtlichen Hammer, für den der Rest der Welt ein Nagel sein muss, auch wenn eigentlich eine Schraube auf das geeignete Werkzeug wartet.
+
+Wer gar nicht erst in solche Fallen laufen will, braucht ein Bindeglied zwischen Technik und Geschäftsmodell, mit dem alle Beteiligten klarkommen. Hier kommen Capabilities ins Spiel, die sich als zeitlich stabiler und allseits verständlicher Ordnungsrahmen für verschiedene Anwendungsfälle in Digitalisierungsvorhaben eignen. Sie können dort sowohl den IT-Architekten als auch den Analysten und Projektleitern gute Dienste leisten.
+
+Business Capabilities beschreiben die Fähigkeiten, die ein Unternehmen benötigt, um sein Geschäftsmodell erfolgreich umzusetzen. Im Kontext des Enterprise-­Architektur-Managements (EAM) wird dieses Hilfsmittel als methodisches Kon­strukt schon lange eingesetzt, und in vielen EAM-Werkzeugen ist es in der einen oder anderen Ausprägung Teil des Metamodells. Zu diesem Thema hat der Bitkom schon 2011 einen Leitfaden herausgegeben (siehe ix.de/z4bh).
+
+Der Digitalverband bezeichnet Capabilities als Verbindungsstück zwischen Geschäfts­prozessmanagement, IT-Architektur und Geschäftsstrategie. Eine einheitliche Definition existiert jedoch nicht. Der hier vorgestellte Ansatz ist einfach, da er Capabilities auf ihren funktionalen Kern beschränkt, das heißt auf die Fähigkeit, etwas zu tun. Es geht darum, so weit wie möglich von der konkreten Umsetzung der Fähigkeiten zu abstrahieren.
+
+Es spielt bei der Modellierung also keine Rolle, ob und welche Techniken eine Fähigkeit unterstützen oder abwickeln sollen, welche Organisationseinheiten daran beteiligt sind und Ähnliches. Denn eine Capability beschreibt allein das „Was“ und nicht das „Wie“. So ist beispielsweise „Rechnungserstellung“ eine Capability, die eine in vielen Unternehmen notwendige Fähigkeit repräsentiert. Ungünstig, weil nicht auf das „Was“ beschränkt, wären Capabilities wie „SAP-Rechnungserstellung“ oder „Rechnungserstellung Abteilung Sonderangebote“. Im ersten Fall würde man die technische Realisierung einbeziehen und im zweiten die organisatorische Zuordnung.
+
+Zeitlich stabiler Handlungsrahmen
+Lässt man diese Aspekte beiseite, ergeben sich Capabilities mit einer zeitlichen Stabilität, die man nur dann anpassen muss, wenn sich das Geschäftsmodell ändert. Findet eine Reorganisation statt oder wird ein IT-System ausgetauscht, hat das keinen Einfluss auf die Definition der Capabilities. Alle für das Unternehmen wich­tigen Fähigkeiten bilden zusammen das Capability-Modell.
+
+Um den unterschiedlichen Detaillierungsbedürfnissen Rechnung zu tragen, wird das Modell hierarchisch aufgebaut. Man beginnt mit einer überschaubaren Anzahl an Haupt-Capabilities auf der obersten Ebene und verfeinert das Ganze in weiteren Ebenen mit Unter-Capabilities. Zwei bis maximal fünf Ebenen haben sich als sinnvoll erwiesen. Für das Modell gelten einige wichtige Eigenschaften:
+
+Die Capabilities müssen überschneidungsfrei sein, benötigte Fähigkeiten dürfen nur einmal vorkommen.
+Das Modell muss vollständig für den jeweiligen Betrachtungskontext sein, es dürfen keine erforderlichen Fähigkeiten fehlen.
+Überflüssige Fähigkeiten darf es nicht geben, das Modell muss sich auf den Anwendungskontext beschränken.
+Im Gegensatz zu Capabilities betrachten Prozesse Abläufe, Rollen, Ereignisse und manchmal auch IT-Systeme – das „Wie“. Sie ändern sich häufig, Capabilities nicht. Die genannte funktionale Überschneidungsfreiheit ist ein weiterer wesentlicher Unterschied zu Prozessen. Letztere nutzen Capabilities, das heißt, die Geschäftsabläufe benötigen an bestimmten Stellen bestimmte Fähigkeiten. IT-Systeme können Capabilities elektronisch unterstützen.
+
+Das folgende fiktive Beispiel eines Digitalisierungsszenarios bei einem Wasserversorger zeigt das Potenzial von Capabilities. Als Ausgangsidee dient der Einsatz internetfähiger Wasseruhren an Verbrauchsstellen statt der heute noch meist gebräuchlichen analogen Messgeräte. Das Capability-­Modell zeigt den relevanten Ausschnitt der Unternehmensfähigkeiten in zwei Ebenen (Abbildung 1). Als Anreicherung markieren die Symbole die heutige Umsetzung der Capabilities. Dies verschafft einen Überblick über alle Fähigkeiten mit Digitalisierungspotenzial. Die intuitive Verständlichkeit von Capability-Modellen auch für nicht IT-affine Beteiligte ist eine der Stärken des Konstrukts.
+
+Capability-Modell für Wasserverbrauchsmanagement in zwei Ebenen: Die übersichtliche Darstellung erleichtert das Verstehen der Vorgänge (Abb. 1). 
+Capability-Modell für Wasserverbrauchsmanagement in zwei Ebenen: Die übersichtliche Darstellung erleichtert das Verstehen der Vorgänge (Abb. 1).
+Wer das Reservoir der Digitalisierung klar erkennen will, sollte jede Capability einzeln betrachten. Aspekte wie Realisierbarkeit, Umsetzungsaufwand und Ähnliches sind zunächst nicht wichtig. So können sich Ideen frei entfalten und es entsteht im Idealfall eine digitale Vision. Die Tabelle „Digitalisierungspotenzial je Capability“ zeigt eine Auswahl von Möglichkeiten. Ähnlich wie die Ist-Situation lassen sie sich klassifizieren und im Capability-­Modell darstellen (siehe Abbildung 2). Daraus können die Projektplaner später konkrete Anforderungen ableiten und bestimmte Punkte zurückstellen oder verwerfen, wenn das Umsetzen zu aufwendig wäre oder der geschätzte Nutzen als zu gering erscheint.
+
+Nutzenpotenziale je Capability: Aus solchen Klassifizierungen können Projektplaner Anforderungen ableiten (Abb. 2).
+Kanalisierte Informationsflüsse
+Zum technischen Umsetzen der Capabilities benötigen die IT-Architekten Informationen zu den Ein- und Ausgaben, die sie für jede Capability ermitteln müssen. Es ist sinnvoll, auf vorhandene Informationsmodelle des Unternehmens zurückzugreifen. Ein- und ausgehende Informationen definieren im Zusammenspiel der Capabilities Konsumenten-Produzenten-Beziehungen: Was die eine Capability als Ausgabe liefert, nutzt die andere als Eingabe. Werden diese beiden Capabilities später in unterschiedlichen IT-Systemen abgewickelt, müssen die Daten über zu schaffende Schnittstellen übertragen werden. Die hier anfallenden Informationen liefern Hinweise und Anforderungen für die später im Detail zu definierenden Datenmodelle und Schnittstellen zwischen verschiedenen Systemen.
+
+Um die Ideen zur Digitalisierung umzusetzen, müssen die IT-Architekten die Systemlandschaft gegebenenfalls umbauen oder erweitern. Aus den Capabilities können sie eine grobe Zielarchitektur ableiten, die einen Überblick über notwendige Änderungen und Integrationsbedarfe verschafft. Dazu ordnen sie die Capabi­lities den gewünschten Zielsystemen zu. Letztere können auch Platzhalter sein, die noch nicht vorhandene Systeme charakterisieren. Hier beschließen die Verantwortlichen also beispielsweise, dass eine mobile Kunden-App entwickelt werden soll, für die man anhand der Capabilities jedoch zunächst nur den funktionalen Umfang grob bestimmt.
+
+Abbildung 3 illustriert einen Teil der Zielarchitektur für das Fallbeispiel. Die Pfeile zeigen die Richtung des Datenflusses an. Die zu übertragenden Daten stammen aus dem zuvor ermittelten Infor­mationsmodell. Mit der Zuordnung der Capabilities zu den Zielsystemen ergibt sich der notwendige Integrationsbedarf also fast automatisch. Fasst man alle in einem Zielsystem umgesetzten Capabilities zusammen, entsteht implizit auch der Satz an Informationstypen, die es verarbeiten oder speichern muss.
+
+Aus der Zuordnung der Capabilies zu den Zielsystemen lässt sich der Integrationsbedarf ermitteln (Abb. 3).
+Auch bei der Auswahl technischer Komponenten können Capabilities helfen. Bevor sich die IT-Planer auf bestimmte Hard- und Software festlegen, sollten sie wieder die für den Anwendungskontext relevanten Capabilities einzeln darauf abklopfen, welche Techniken geeignet erscheinen. Sie können sich zunächst auf eine grundlegende Technologieauswahl beschränken oder gleich Produktkandidaten und Implementierungen festlegen. Die Tabelle „Auswahl der Technik“ zeigt für einige Capabilities erste Überlegungen dazu.
+
+Digitalisierungspotenzial je Capability
+Capability (Ebene 2)	Nutzenpotenziale
+Wasseruhrmontage	– Anschluss der Wasseruhr an das Internet (Kernidee)
+– Wasseruhr mit gesteuertem Servoabsperrhahn (beispielsweise Notschließung bei erkanntem oder vermuteten Wasserrohrbruch)
+Zählerstandserfassung	– automatische, kontinuierliche Fernabfrage per Internet
+– Wegfall der jährlichen manuellen Vor-Ort-Ablesungen
+Verbrauchsabrechnung	– monatliche Abrechnung des realen Verbrauchs
+– Vermeidung von Seiteneffekten zu hoher oder zu niedriger Abschläge
+Abschlagsberechnung	unterjährige Anpassung von Abschlägen oder kompletter Entfall von Abschlägen (siehe Verbrauchsabrechnung)
+Rechnungsversand	– Umstellung auf E-Mail-Versand oder Bereitstellung im Kundenportal / in der Kunden-App
+– keine Druck- und Portokosten mehr
+Erstellen der Verbrauchsstatistik	Ermittlung detaillierter Verbrauchsprofile (Tageszeiten, Wochentage, Korrelation mit Großereignissen oder Ähnliches)
+Verbrauchsvorhersage	verbesserte Vorhersage durch haushalts- und tagesgenaue Verbrauchsdaten
+Kundenalarmierung	kundenspezifische Alarmierung bei Überschreiten kundendefinierter Verbrauchsschwellen (etwa unerwartet hoher Verbrauch während angekündigter Abwesenheitszeiten, zum Beispiel bei Wasserrohrbruch im Urlaub)
+Verbrauchsmeldung	laufende Information an den Kunden über Entwicklung des Wasserverbrauchs (zum Beispiel Überschreiten empfohlener oder vorgegebener maximaler Verbrauchsmengen in trockenen Sommern)
+Tarifdefinition	– Motivation zum Wassersparen durch Staffeltarife (etwa Freimenge von x Litern pro Tag, Erhöhung des Literpreises bei übermäßigem Tagesverbrauch)
+– unterjährige Tarifänderungen mit tagesgenauer und verbrauchsgerechter Abrechnung
+Wasseruhrüberwachung	internetgestütztes, automatisches Überwachen und frühzeitiges Erkennen von Fehlern
+Manchmal kann es aufwendig sein
+Nicht alle Capabilities stellen hohe oder spezielle Anforderungen an die unterstützende Technik, wie das Beispiel der Verbrauchsabrechnung zeigt. Bei der Zählerstandserfassung hingegen erkennt man schon hier, dass der Anschluss der Wasseruhr an das Internet je nach örtlichen Gegebenheiten mit großem Aufwand verbunden sein kann. Nicht jeder Anschlussraum verfügt stets über ein nutzbares WLAN oder ein verlegtes LAN-Kabel, und auch eine Mobilfunkverbindung funktioniert möglicherweise in tiefen Kellergewölben nicht ohne Weiteres.
+
+Auswahl der Technik
+Capability (Ebene 2)	Technische Möglichkeiten und Rahmenbedingungen
+Zählerstanderfassung	digitaler Messsensor mit integriertem Kommunikationsmodul zur Übermittlung der Zählerstände mit Varianten:
+– LTE-Modul mit SIM-Karte (Netzabdeckung/-empfang und Kosten sind zu klären) 
+– WLAN-Modul mit Verbindung zu WLAN-Router des Kunden (WLAN-Stärke und Passwortwechsel durch Kunden sind zu klären)
+– Ethernet-Verbindung zu Kundenrouter (mögliche örtliche Einschränkungen beachten)
+Zählerstandsverwaltung	Erhöhung der Speicher- und Verarbeitungskapazität aufgrund des Ansteigens der Datenmenge an Zählerständen um den Faktor 365 (bei täglicher Ablesung) bis hin zu Faktor >500000 (bei minütlicher Ablesung) statt jährlicher Ablesung
+Verbrauchsberechnung	keine neuen technischen Anforderungen
+Verbrauchsmeldung	– Verteilung der Meldungen über Webportal (Kundenzugang) und per E-Mail als Mindestanforderungen
+– Weitere technische Kanäle sind zu prüfen (mobile Kunden-App, soziale Medien et cetera).
+– gegebenenfalls Erstellen einer API zum Koppeln an verschiedene IT-Systeme (auch Drittanbieter, Plattformen und so weiter)
+Wasseruhrüberwachung	Echtzeitanforderungen/Überwachungsintervalle sind zu klären
+Wasseruhralarmierung	– Push-Mechanismus für Nachrichten auf Mobilgeräten (Android, iOS)
+– Desktop-Benachrichtigungen des Browsers bei Portalnutzung
+Mit den vorgestellten Möglichkeiten zum Einsatz von Capabilities im Digita­lisierungskontext ist das Anwendungs­potenzial nicht erschöpft. Man könnte beispielsweise die Umfänge von (Teil-)Projekten auf der Grundlage von Capabilities definieren und gegeneinander abgrenzen oder das Migrieren von Funktionen von einem IT-System auf ein anderes visualisieren.
+
+In der Coronakrise lassen sich Capabilities auch nutzen, um kritische Fähigkeiten des Unternehmens zu untersuchen, deren Orts- oder Materialgebundenheit effektiver Heimarbeit im Wege stehen. Diese Capabilities möglichst schnell zu digitalisieren, kann ein entscheidender Beitrag zur Überlebensfähigkeit des Unternehmens sein.
+
+Zwar bergen Capabilities großes Potenzial für Digitalisierungsvorhaben, doch der tatsächlich erreichbare Nutzen ist abhängig von der Qualität des Modells sowie seiner Akzeptanz in der Organisation. Hier sind vor allem ein gutes Verständnis von Capability-Modellierung, Erfahrung sowie eine gesunde Kombination aus Pragmatik und Präzision gefragt. (jd@ix.de)
+
+Quellen
+EAM-Leitfaden des Bitkom: ix.de/z4bh
+Dr. Wolf Pfannenstiel
+ist Enterprise-Architekt bei der Dangelmayer & Seemann GmbH in Bonn. In dieser Funktion berät er internationale Konzerne sowie Unternehmen im Mittelstand bei Digitalisierungs- und Transformationsthemen. 
+
+Kommentieren
+
+Leserbrief schreiben
+Auf Facebook teilen
+Auf Twitter teilen
+Kontakt
+Impressum
+Datenschutzhinweis
+Nutzungsbedingungen
+Mediadaten
+Heftinhalt
+Lesezeichen
+vorheriger Artikel
+nächster Artikel
