@@ -5,7 +5,7 @@ lines = f.readlines()
 words = []
 
 for line in lines:
-    fwords = line.rstrip("\n").split(" ")
+    fwords = line.strip().split(" ")
     for word in fwords:
         if len(word) > 0:
             words.append(word)
