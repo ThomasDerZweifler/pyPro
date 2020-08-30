@@ -5,15 +5,13 @@ lines = f.readlines()
 words = []
 
 for line in lines:
-    fwords = line.split(" ")
+    fwords = line.rstrip("\n").split(" ")
     for word in fwords:
-        indexof = word.find("\n")
-        if indexof == 0:
-            continue
-        elif indexof > 0:
-            word = word[0:indexof]
-        words.append(word)
+        if len(word) > 0:
+            words.append(word)
 
 f.close()
+
+print("words: " + str(words))
 
 print("Wortzahl: " + str(len(words)))
