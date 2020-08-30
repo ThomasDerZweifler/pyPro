@@ -6,7 +6,7 @@ for line in f.readlines():
     fwords = line.strip().split(" ")
     for word in fwords:
         word = word.replace('(','').replace(')','')
-        if len(word) > 0:
+        if len(word) > 1:
             words.append(word)
 
 f.close()
