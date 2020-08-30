@@ -18,8 +18,16 @@ for line in f.readlines():
                 wordscloud[word] = 1
 f.close()
 
-print("words: " + str(words))
-
 print("words count: " + str(len(words)))
 
-print("words cloud: " + str(wordscloud))
+sort_orders = sorted(wordscloud.items(), key=lambda x: x[1], reverse=True)
+
+top10 = {}
+
+for item in sort_orders:
+    if len(top10) > 9:
+         break
+    top10[item[1]] = item[0]
+
+print("most important words: " + str(top10) )
+
