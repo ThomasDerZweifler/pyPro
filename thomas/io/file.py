@@ -1,6 +1,6 @@
 filename = "lorem.txt"
-# filename = "ctArtikel.txt"
-# filename = "ringelnatz.txt"
+filename = "ctArtikel.txt"
+filename = "ringelnatz.txt"
 
 f = open(filename, "r")
 
