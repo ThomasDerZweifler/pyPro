@@ -3,6 +3,8 @@ import os
 package = "plugin/"
 cls = "Plugin"
 
+print("looking for plugins in: " + package)
+
 for dirpath, dirnames, filenames in os.walk("plugin/"):
     if(dirpath == package):
 

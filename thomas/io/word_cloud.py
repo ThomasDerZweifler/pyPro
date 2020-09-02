@@ -1,4 +1,4 @@
-filename = "txt/lorem.txt"
+filename = 'txt/lorem.txt'
 # filename = "txt/ctArtikel.txt"
 # filename = "txt/ringelnatz.txt"
 
@@ -46,27 +46,6 @@ if goodLooking :
     print("most important (frequence representant) words: " + str(top10) )
 
 goodLooking = True
-if goodLooking :
-
-    # all words with their frequences sorted descendant
-    sort_orders = sorted(wordscloud.items(), key=lambda x: x[1], reverse=True)
-
-    print(sort_orders)
-
-    top10 = {}
-
-    # words of the heigest ten frequences ()
-    for item in sort_orders:
-        if len(top10) > 9:
-            break
-        frequence = item[1]
-        word = item[0]
-
-        # TODO skip stopwords (look up in loades stopwords list)
-
-        top10[frequence] = word
-
-    print("most important (frequence representant) words: " + str(top10) )
 
 import random
 
