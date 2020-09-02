@@ -18,3 +18,10 @@ https://github.com/CoreyMSchafer/code_snippets
 
 ------- Cython -------
 https://cython.readthedocs.io/en/latest/src/tutorial/cython_tutorial.html
+
+------- Gimp Python -------
+https://www.gimp.org/docs/python/index.html
+
+------- Blender Python -------
+https://docs.blender.org/api/current/index.html
+
