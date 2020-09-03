@@ -1,6 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-
 import os
 
 package = "plugin/"
@@ -22,5 +19,3 @@ for dirpath, dirnames, filenames in os.walk("plugin/"):
             if(c.__name__ == cls):
                 print("version: " + c().version())
 
-#import py_compile
-#py_compile.compile('classes.py')
