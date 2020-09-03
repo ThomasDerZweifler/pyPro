@@ -1,16 +1,17 @@
--------- Git --------
-
+------- Git --------
 https://code.visualstudio.com/Docs/editor/versioncontrol#_remotes
-
 https://docs.github.com/en/github/using-git/caching-your-github-credentials-in-git
 
+------- Python Kurs -------
+https://www.python-kurs.eu/python3_kurs.php
+
+------- Rheinwerk Verlag Phyton 3 --------
+https://www.rheinwerk-verlag.de/openbook/
 
 ------- convolution ----------
-
 https://softwaredevelopmentperestroika.wordpress.com/2014/02/11/image-processing-with-python-numpy-scipy-image-convolution/
 
 ------- image manipulator tools --------
-
 https://opensource.com/article/19/3/python-image-manipulation-tools
 
 ------- code snippets --------
