@@ -1,5 +1,7 @@
 import os
 
+# python3 ./classes.py
+
 package = "plugin/"
 cls = "Plugin"
 
