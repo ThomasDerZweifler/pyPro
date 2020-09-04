@@ -26,3 +26,6 @@ https://www.gimp.org/docs/python/index.html
 ------- Blender Python -------
 https://docs.blender.org/api/current/index.html
 
+------- flask, db -------
+https://www.youtube.com/watch?v=1nxzOrLWiic
+https://techwithtim.net/tutorials/flask/sessions/
