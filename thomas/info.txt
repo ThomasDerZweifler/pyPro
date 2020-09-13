@@ -8,6 +8,9 @@ https://www.python-kurs.eu/python3_kurs.php
 ------- Rheinwerk Verlag Phyton 3 --------
 https://www.rheinwerk-verlag.de/openbook/
 
+------- extending Python -------
+https://docs.python.org/3/extending/index.html#extending-index
+
 ------- convolution ----------
 https://softwaredevelopmentperestroika.wordpress.com/2014/02/11/image-processing-with-python-numpy-scipy-image-convolution/
 
