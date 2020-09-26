@@ -1,4 +1,5 @@
-from flask import Flask, redirect, url_for, render_template, request, session
+from flask import *
+# from flask import Flask, redirect, url_for, render_template, request, session
 from datetime import timedelta
 
 app = Flask(__name__)
@@ -26,7 +27,7 @@ def login():
 def user():
 	if "user" in session:
 		user = session["user"]
-		return f"<h1>{user}</h1>"
+		return f"<h1>User: {user}</h1>"
 	else:
 		return redirect(url_for("login"))
 
