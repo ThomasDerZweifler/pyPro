@@ -33,3 +33,9 @@ https://docs.blender.org/api/current/index.html
 https://www.youtube.com/watch?v=1nxzOrLWiic
 https://techwithtim.net/tutorials/flask/sessions/
 https://docs.sqlalchemy.org/en/13/orm/tutorial.html
+
+------- DB -------
+https://dev.mysql.com/doc/mysql-installation-excerpt/5.7/en/installing.html
+https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/
+https://www.sqlalchemy.org/
+
