@@ -22,8 +22,8 @@ config = {
 }
 
 try:
-    # connection = mysql.connector.connect(host="localhost", user="root",passwd="Tester#3",db="sys")
-    connection = mysql.connector.connect(**config)
+    connection = mysql.connector.connect(host="localhost", user="root",passwd="Tester#3",db="sys")
+    # connection = mysql.connector.connect(**config)
 
     # connection = mysql.connector.connect(host='localhost', user='thomas',passwd='Tester#3')
 
@@ -35,7 +35,7 @@ print(connection)
 
 mycursor = connection.cursor()
 
-# mycursor.execute("CREATE DATABASE mydatabase")
+mycursor.execute("CREATE DATABASE mydatabase")
 
 mycursor.execute("SHOW DATABASES")
 
@@ -48,5 +48,5 @@ for x in mycursor:
 # result = cursor.fetchone()
 # print(result)
  
-# cursor.close()
-# connection.close()
+mycursor.close()
+connection.close()
