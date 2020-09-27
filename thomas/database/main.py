@@ -21,8 +21,9 @@ config = {
   #'database':'sys'
 }
 
+connection = None
 try:
-    connection = mysql.connector.connect(host="localhost", user="root",passwd="Tester#3",db="sys")
+    connection = mysql.connector.connect(host="localhost", user="root",passwd="Tester#3",db="world")
     # connection = mysql.connector.connect(**config)
 
     # connection = mysql.connector.connect(host='localhost', user='thomas',passwd='Tester#3')
@@ -33,20 +34,23 @@ except:
  
 print(connection)
 
-mycursor = connection.cursor()
+cursor = connection.cursor()
 
-mycursor.execute("CREATE DATABASE mydatabase")
+# cursor.execute("CREATE DATABASE mydatabase")
 
-mycursor.execute("SHOW DATABASES")
+cursor.execute("SHOW DATABASES")
 
-for x in mycursor:
+print("-----databases-----")
+for x in cursor:
   print(x)
 
-# cursor = connection.cursor()
- 
-# cursor.execute("SELECT city.Name FROM country INNER JOIN city ON country.capital = city.id WHERE country.Name ='Aruba' ;")
-# result = cursor.fetchone()
-# print(result)
- 
-mycursor.close()
+cursor = connection.cursor()
+
+country = "Germany"
+
+cursor.execute("SELECT city.Name FROM country INNER JOIN city ON country.capital = city.id WHERE country.Name ='{0}' ;".format(country))
+result = cursor.fetchone()
+print("the capital of Germany is: ", result[0])
+
+cursor.close()
 connection.close()
