@@ -1,17 +1,19 @@
 from flask import *
+import db.dbconnect as Database
 import time
 
 app = Flask(__name__)
 
-@app.route('/hello/')
-@app.route('/hello/<name>')
-@app.route('/hello/<name>/<givenname>')
-def hello(name="a name",givenname="a givenname"):
-    return render_template('hello.html',name=name, givenname=givenname)
+@app.route('/')
+def capital():
+    return render_template('hello.html')
 
 @app.route('/result')
 def renderResult():
-    result = request.args.get('input')
-    return render_template('result.html',result=result)
+    input = request.args.get('input')
+
+    result = Database.Database().getCapital(input)
+
+    return render_template('result.html',country=input, result=result)
 
 app.run(debug=True)

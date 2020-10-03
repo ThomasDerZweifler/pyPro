@@ -34,15 +34,15 @@ except:
  
 print(connection)
 
-cursor = connection.cursor()
+# cursor = connection.cursor()
 
 # cursor.execute("CREATE DATABASE mydatabase")
 
-cursor.execute("SHOW DATABASES")
+# cursor.execute("SHOW DATABASES")
 
-print("-----databases-----")
-for x in cursor:
-  print(x)
+# print("-----databases-----")
+# for x in cursor:
+  # print(x)
 
 cursor = connection.cursor()
 

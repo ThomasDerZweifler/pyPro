@@ -1,12 +1,6 @@
 <!doctype html>
 <title>Hello from Flask</title>
 
-{% if name or givenname %}
-  <h1>Hello {{ name }}, {{givenname}}!</h1>
-{% else %}
-  <h1>Hello, World!</h1>
-{% endif %}
+Country <input id="input">
 
-<input id="input">
-
-<button type="button" onclick="window.location.href='/result?input=' + document.getElementById('input').value">Click Me!</button>
+<button type="button" onclick="window.location.href='/result?input=' + document.getElementById('input').value">Search capital</button>
