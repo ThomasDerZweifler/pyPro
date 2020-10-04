@@ -41,3 +41,6 @@ https://dev.mysql.com/doc/mysql-installation-excerpt/5.7/en/installing.html
 https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/
 https://www.sqlalchemy.org/
 
+------- Telegram Bot -------
+https://python-telegram-bot.readthedocs.io/en/stable/telegram.bot.html
+https://www.codementor.io/@garethdwyer/building-a-telegram-bot-using-python-part-1-goi5fncay
