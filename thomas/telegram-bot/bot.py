@@ -1,5 +1,7 @@
 # pip3 install python-telegram-bot
 
+# https://python-telegram-bot.readthedocs.io/en/stable/telegram.bot.html
+
 # https://www.freecodecamp.org/news/learn-to-build-your-first-bot-in-telegram-with-python-4c99526765e4/
 
 # https://www.toptal.com/python/telegram-bot-tutorial-python
@@ -12,7 +14,7 @@ import logging
 logging.basicConfig(level=logging.DEBUG,
                     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
-logger = logging.getLogger()
+logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
 def get_url():
@@ -24,7 +26,8 @@ def get_url():
 def bop(bot, update):
     url = get_url()
     chat_id = update.message.chat_id
-    bot.send_photo(chat_id=chat_id, photo=url)
+    # bot.send_photo(chat_id=chat_id, photo=url)
+    bot.send_message(chat_id=chat_id, text=url)
 
 def main():
     updater = Updater('1382819143:AAH7OeZ7INgU5tPA0ns3pAAnKOIn8tFoNm0')
