@@ -2,6 +2,8 @@
 
 # https://www.freecodecamp.org/news/learn-to-build-your-first-bot-in-telegram-with-python-4c99526765e4/
 
+# https://www.toptal.com/python/telegram-bot-tutorial-python
+
 from telegram.ext import Updater, InlineQueryHandler, CommandHandler
 import requests # http
 import re #regular expressions
