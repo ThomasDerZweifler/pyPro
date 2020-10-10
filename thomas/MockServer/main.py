@@ -1,16 +1,18 @@
 from flask import *
 import db.dbconnect as Database
-import time
+from datetime import datetime
+from urllib.parse import urlparse
 
 app = Flask(__name__)
 
 @app.route('/')
 def capital():
-    return render_template('hello.html')
+    return render_template('define_endpoint.html')
 
-@app.route('/mock/<path:path>', methods=['GET', 'POST'])
+@app.route('/<path:path>', methods=['GET', 'POST'])
 def mock(path):
 
+    # look up the db for path
     # return json response by asking db with path and query
 
     query = request.args
@@ -25,12 +27,18 @@ def addMockEndpoint():
 
         method = formdata['method']
         req = formdata['request']
+        parts = urlparse(req)
         res = formdata['response']
+
+        # current date and time
+        now = datetime.now()
+        timestamp = datetime.timestamp(now)
+        date_time = now.strftime("%m/%d/%Y, %H:%M:%S")
 
     # save to db    
      #result = Database.Database().getCapital(input)
 
-        text = "method: {0}; request: {1}; response: {2}".format(method, req, res)
+        text = "date_time: {0} method: {1}; request: {2}; response: {3}".format(date_time, method, parts, res)
 
         return render_template('result.html',country=input, result=text)
 
