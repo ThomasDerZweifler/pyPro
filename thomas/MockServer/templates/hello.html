@@ -1,0 +1,33 @@
+<!doctype html>
+<title>Mockserver</title>
+
+<h2>Endpoint Definitions</h2>
+
+<form action="/addMockEndpoint" method="POST">
+ <table border="1">
+  <tr>
+   <th>Method</th>
+   <th>Path</th> 
+   <th>Result</th>
+  </tr>
+  <tr>
+   <td />
+   <td>e.g.: /path?queryParem1=qp1&queryParam2=qp2</td>
+   <td>e.g.: {result: {"key":"value"}}</td>
+  </tr>
+  <tr>
+   <td>
+    <select name="method" id="method">
+     <option>POST</option>
+     <option selected>GET</option>
+    </select>
+   </td>
+   <td><input type="text" size="50" id="request" name="request" rows="10" cols="100" /></td>
+   <td><textarea id="response" name="response" rows="10" cols="100"></textarea></td>
+  </tr>
+ </table>
+ <button type="reset">Eingaben zurücksetzen</button>
+ <button type="submit">Eingaben absenden</button>
+</form>
+
+<!-- <button type="button" onclick="window.location.href='/result?input=' + document.getElementById('request').value">Add to Mockserver</button> -->
