@@ -17,7 +17,17 @@ def mock(path):
 
     query = request.args
 
-    return render_template('mock_result.html', request=path, query=query, response="{a json response}")
+    #return render_template('mock_result.html', request=path, query=query, response="{a json response}")
+
+    return {
+        "username" : "g.user.username",
+        "e-mail" : "g.user.email"
+    }
+
+    return jsonify(
+        username="g.user.username",
+        email="g.user.email"
+    )
 
 @app.route('/addMockEndpoint', methods=['POST'])
 def addMockEndpoint():
