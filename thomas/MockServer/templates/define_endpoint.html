@@ -4,17 +4,19 @@
 <h2>Endpoint Definitions</h2>
 
 <form action="/addMockEndpoint" method="POST">
- <table border="1">
+ <table border="10">
   <tr>
    <th>Method</th>
    <th>Path</th> 
    <th>Result</th>
   </tr>
+
   <tr>
    <td />
    <td>e.g.: /yourpath?queryParem1=qp1&queryParam2=qp2#fragment1</td>
    <td>e.g.: {result: {"key1":"value1"}{"key2":"value2"}}</td>
   </tr>
+
   <tr>
    <td>
     <select name="method" id="method">
@@ -22,6 +24,7 @@
      <option selected>GET</option>
     </select>
    </td>
+   
    <td><input type="text" size="60" id="request" name="request" rows="10" cols="100" /></td>
    <td><textarea id="response" name="response" rows="10" cols="100"></textarea></td>
   </tr>

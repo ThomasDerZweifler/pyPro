@@ -5,6 +5,14 @@ from urllib.parse import urlparse
 
 app = Flask(__name__)
 
+@app.route('/init_database')
+def initDB():
+
+    status = Database.Database().init()
+
+    return render_template('db_created.html', result=status)
+
+
 @app.route('/')
 def capital():
     return render_template('define_endpoint.html')
