@@ -43,20 +43,21 @@ def addMockEndpoint():
     if request.method == 'POST':
         formdata= request.form
 
-        method = formdata['method']
-        req = formdata['request']
-        parts = urlparse(req)
-        res = formdata['response']
+        EP_flavor = formdata['flavor']
+        EP_description = formdata['description']
+        EP_method = formdata['method']
+        EP_path = formdata['request']
+        parts = urlparse(EP_path)
+        EP_json = formdata['response']
 
         # current date and time
         now = datetime.now()
         timestamp = datetime.timestamp(now)
         date_time = now.strftime("%m/%d/%Y, %H:%M:%S")
 
-    # save to db    
-     #result = Database.Database().getCapital(input)
+        Database.Database().addResponseForPath(EP_description, EP_flavor, EP_method, EP_path, EP_json)
 
-        text = "date_time: {0} method: {1}; request: {2}; response: {3}".format(date_time, method, parts, res)
+        text = "date_time: {0} flavor: {1}; description: {2}; method: {3}; request: {4}; response: {5}".format(date_time, EP_flavor, EP_description, EP_method, parts, EP_json)
 
         return render_template('result.html',country=input, result=text)
 
