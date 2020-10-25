@@ -1,3 +1,5 @@
+#!/usr/bin/pyhon
+
 def decription() :
     print(
     """ funktionale Programmierung: - seiteneffektfrei, von keinem Zustand abhängig
