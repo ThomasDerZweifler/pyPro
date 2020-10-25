@@ -1,44 +1,47 @@
-""" funktionale Programmierung: - seiteneffektfrei, von keinem Zustand abhängig
+def decription() :
+    print(
+    """ funktionale Programmierung: - seiteneffektfrei, von keinem Zustand abhängig
 
-https://www.youtube.com/watch?v=YZIUPOGx_ts&t=510s
+    https://www.youtube.com/watch?v=YZIUPOGx_ts&t=510s
 
-Vorteile funktionaler vs. imperativer Programmierung
+    Vorteile funktionaler vs. imperativer Programmierung
 
-    stateless, einfacher zu verstehen und zu testen, egal welche Reihenfolge der Methoden,
-        kann leichter parallelisert werden
+        stateless, einfacher zu verstehen und zu testen, egal welche Reihenfolge der Methoden,
+            kann leichter parallelisert werden
 
-(Rekursion)
----- Funktion höherer Ordnung
-- Funktion die eine andere Funktion als Argument bekommt 
-und/oder
-- Funktion die eine Funktion als Rückgabe hat
-- Bsp. map (funktionale Äquivalent der for-Schleife), filter (wie map nur lambda ist Prädikat), reduce
+    (Rekursion)
+    ---- Funktion höherer Ordnung
+    - Funktion die eine andere Funktion als Argument bekommt 
+    und/oder
+    - Funktion die eine Funktion als Rückgabe hat
+    - Bsp. map (funktionale Äquivalent der for-Schleife), filter (wie map nur lambda ist Prädikat), reduce
 
----- Closure
-- annonyme Funktion + Snapshot des Geltungsbereiches in sich diese Funktion befunden hat
-Bsp.: def mal(x: int) -> Callable[[int], int]; multipliziere_liste(xs: list, k: int) -> list
+    ---- Closure
+    - annonyme Funktion + Snapshot des Geltungsbereiches in sich diese Funktion befunden hat
+    Bsp.: def mal(x: int) -> Callable[[int], int]; multipliziere_liste(xs: list, k: int) -> list
 
----- Lambda
-- annonyme Funktionen
+    ---- Lambda
+    - annonyme Funktionen
 
----- Currying (nach Haskall Curry benannt: Programmiersprache Haskall nach ihm benannt)
-- Funktion mit Anzahl von Argumenten bei der ein Argument festgehalten 
-    und eine Funktion mit einer Stelligkeit weniger zurückgegeben wird
+    ---- Currying (nach Haskall Curry benannt: Programmiersprache Haskall nach ihm benannt)
+    - Funktion mit Anzahl von Argumenten bei der ein Argument festgehalten 
+        und eine Funktion mit einer Stelligkeit weniger zurückgegeben wird
 
----- Filter (Liste + Funktion ist ein Prädikat)
-- statt map eine weitere Funktion höherer Ordnung: filter 
-    (lambda muss jetzt aber eiun Prädikat sein, also eine Funktion die Wahr oder Falsch zurückgibt)
+    ---- Filter (Liste + Funktion ist ein Prädikat)
+    - statt map eine weitere Funktion höherer Ordnung: filter 
+        (lambda muss jetzt aber eiun Prädikat sein, also eine Funktion die Wahr oder Falsch zurückgibt)
 
----- Reduce oder "fold left" (Liste + zweistellige Funktion + Startwert)
-- nimmt eine Liste + zweistellige Funktion + Startwert und reduziert damit die Liste auf ein Element
+    ---- Reduce oder "fold left" (Liste + zweistellige Funktion + Startwert)
+    - nimmt eine Liste + zweistellige Funktion + Startwert und reduziert damit die Liste auf ein Element
 
----- list comprehensions (Listen-Abstraktion)
-Spezialität in Python
-statt: list(map(lambda x: x * k, xs)) jetzt: [x * k for x in xs]
-oder
-statt: list(map(lambda x: x * k, xs)) jetzt: [x * k for x in xs]
+    ---- list comprehensions (Listen-Abstraktion)
+    Spezialität in Python
+    statt: list(map(lambda x: x * k, xs)) jetzt: [x * k for x in xs]
+    oder
+    statt: list(map(lambda x: x * k, xs)) jetzt: [x * k for x in xs]
 
-"""
+    """)
+decription()
 
 from typing import Callable
 
