@@ -22,3 +22,7 @@ while y < 10 :
     y = y + 1
 
 print("end")
+
+for i in range(1,10,2):
+    pass
+    # print(i)
