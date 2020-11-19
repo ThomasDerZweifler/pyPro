@@ -105,15 +105,16 @@ def addMockEndpoint():
         timestamp = datetime.timestamp(now)
         date_time = now.strftime("%m/%d/%Y, %H:%M:%S")
 
-        Database.Database().addResponseForPath(EP_description, EP_flavor, EP_method, EP_path, EP_json)
+        success = Database.Database().addResponseForPath(EP_description, EP_flavor, EP_method, EP_path, EP_json)
 
         text = "date_time: {0} flavor: {1}; description: {2}; method: {3}; request: {4}; response: {5}".format(date_time, EP_flavor, EP_description, EP_method, parts, EP_json)
 
-        return render_template('result.html',country=input, result=text)
+        succ = "not"
 
-    else :
+        if(success) :
+            succ = "successfully"
 
-        return render_template('result.html',country=input, result="not saved")
+        return render_template('result.html', result=text, success=succ)
 
 @app.route("/spec")
 def spec():

@@ -55,6 +55,8 @@ class Database() :
 
     def addResponseForPath(self, EP_description, EP_flavor, EP_method, EP_path, EP_json) :
 
+        result = None
+
         connection = self.getConnection()
         if(connection == None) : return
 
@@ -72,6 +74,7 @@ class Database() :
             connection.commit()
             print("---> mysql query executed: {0}".format(query))
             print(cursor.rowcount, "record inserted.")
+            result = query
         except Exception as e:
             print("---> mysql query execution fails: {0}".format(e))            
 
@@ -83,6 +86,7 @@ class Database() :
             connection.close()
             print("mysql connection is closed")
 
+        return result
 
     def getResponseForPath(self, EP_path) :
 
@@ -131,9 +135,19 @@ class Database() :
 
     def test(self) :
 
-        self.addResponseForPath('a description', 'a flavor', 'GET', 'path_eight', '{result: {"key1":"value1"}{"key2":"value2"}')
+        result = self.addResponseForPath('a description', 'a flavor', 'GET', 'path_eight', '{result: {"key1":"value1"}{"key2":"value2"}')
 
-        self.addResponseForPath('a description', 'a flavor', 'GET', 'path_five', '{result: {"key1":"value1"}{"key2":"value2"}')
+        if result != None:
+            print("path_eight sucessfully inserted")
+        else : 
+            print("path_eight not inserted")
+
+        result = self.addResponseForPath('a description', 'a flavor', 'GET', 'path_five', '{result: {"key1":"value1"}{"key2":"value2"}')
+
+        if result != None:
+            print("path_five sucessfully inserted")
+        else : 
+            print("path_five not inserted")
 
         path = 'path_five'
         response = self.getResponseForPath(path)
