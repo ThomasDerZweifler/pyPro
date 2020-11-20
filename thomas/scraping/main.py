@@ -51,6 +51,9 @@ class Scraper() :
         
         return self.totalParts
 
+
+# Problem: setNumber = 7416x
+
 fromSetNumer = 6682
 setsCount = 3
 toSetNumer = fromSetNumer + setsCount
