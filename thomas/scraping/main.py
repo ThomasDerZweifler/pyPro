@@ -1,10 +1,22 @@
+''' 
+
+Scraping parts from https://playmodb.org
+
+Installations:
+    pip3 install beautifulsoup4
+    pip3 install requests
+
+Starts with:
+    python -u "/Users/thomasfunke/git/pyPro/thomas/scraping/main.py"
+
+Info:
+    https://playmodb.org/
+    https://klicky-ersatzteile.de/
+
+'''
+
 from bs4 import BeautifulSoup
 import requests
-
-# https://playmodb.org/
-
-# https://klicky-ersatzteile.de/
-
 
 class Scraper() :
 
