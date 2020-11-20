@@ -84,6 +84,38 @@ for setNumber in range( fromSetNumer, toSetNumer ):
 
 print("\nfrom set number = {0} scraping {1} set(s) and totalParts = {2} (klicky contained: {3})".format(fromSetNumer, toSetNumer-fromSetNumer,totalParts, scraper.getKlickyContained()))
 
-    
+'''
+
+Demo output:
+
+[Running] python -u "/Users/thomasfunke/git/pyPro/thomas/scraping/main.py"
+
+> setNumber = 4000
+
+> get https://playmodb.org/cgi-bin/showpart.pl?partnum=k3201xa
+PlaymoDB Part Info for "Man, classic style, brown hair, all blue clothes, fixed wrists"
+See Klicky details
+
+> get https://playmodb.org/cgi-bin/showpart.pl?partnum=k3272a
+PlaymoDB Part Info for "Man, classic style, blond hair, all blue clothes, fixed wrists"
+See Klicky details
+
+> get https://playmodb.org/cgi-bin/showpart.pl?partnum=30 03 7190
+PlaymoDB Part Info for "passenger car roof"
+Vehicle (Train)
+
+> get https://playmodb.org/cgi-bin/showpart.pl?partnum=30 03 7250
+PlaymoDB Part Info for "Caboose platform and rail"
+Vehicle (Train)
+
+> get https://playmodb.org/cgi-bin/showpart.pl?partnum=30 03 7270
+PlaymoDB Part Info for "Brake handle for train car"
+Vehicle (Train)
+
+from set number = 4000 scraping 1 set(s) and totalParts = 5 (klicky contained: 2)
+
+[Done] exited with code=0 in 4.842 seconds
+
+'''
     
 
