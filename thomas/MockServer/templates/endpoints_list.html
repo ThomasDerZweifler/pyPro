@@ -1,0 +1,33 @@
+<!doctype html>
+<title>Mockserver</title>
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+<div class=page>
+  <h1>Mock-Endpoints</h1>
+
+    <table>
+     <TR>
+    <TH></TH>
+    <TH>ID</TH>
+    <TH>timestamp</TH>
+    <TH>creation</TH>
+    <TH>flavor</TH>
+    <TH>description</TH>
+    <TH>method</TH>
+    <TH>path</TH>
+    <TH>response</TH>
+    </TR>
+    {% for item in items %}
+    <TR>
+    <TD class="c1"><IMG src="/static/{{item.logo}}" alt="a logo" height="26"></TD>
+    <TD class="c2">{{item.id}}</TD>
+    <TD class="c3">{{item.timestamp}}</TD>
+    <TD class="c4">{{item.creation}}</TD>
+    <TD class="c5"><SPAN>{{item.flavor}}</SPAN></TD>
+    <TD class="c6"><SPAN>{{item.description}}</SPAN></TD>
+    <TD class="c7"><SPAN>{{item.method}}</SPAN></TD>
+    <TD class="c8"><SPAN>{{item.path}}</SPAN></TD>
+    <TD class="c9"><SPAN>{{item.response}}</SPAN></TD>
+    </TR>
+    {% endfor %}
+    </table>
+</div>

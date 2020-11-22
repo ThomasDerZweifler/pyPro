@@ -87,6 +87,13 @@ def mock(path):
         email="g.user.email"
     )
 
+    return render_template('mock_result.html', response="list of all endpoints")
+
+@app.route('/listAllMockEndpoints', methods=['GET'])
+def listAllMockEndpoints():
+    items = Database.Database().getAllPaths()
+    return render_template('endpoints_list.html', items=items)
+
 @app.route('/addMockEndpoint', methods=['POST'])
 def addMockEndpoint():
     
