@@ -1,21 +1,26 @@
 <!doctype html>
-<title>Mockserver</title>
-<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+<html>
+<head>
+  <title>Mockserver</title>
+  <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
 <div class=page>
   <h1>Mock-Endpoints</h1>
 
     <table>
-     <TR>
-    <TH></TH>
-    <TH>ID</TH>
-    <TH>timestamp</TH>
-    <TH>creation</TH>
-    <TH>flavor</TH>
-    <TH>description</TH>
-    <TH>method</TH>
-    <TH>path</TH>
-    <TH>response</TH>
-    </TR>
+    <tr>
+    <th></th>
+    <th>ID</th>
+    <th>timestamp</th>
+    <th>creation</th>
+    <th>flavor</th>
+    <th>description</th>
+    <th>method</th>
+    <th>path</th>
+    <th>response</tr>
+    </tr>
     {% for item in items %}
     <TR>
     <TD class="c1"><IMG src="/static/{{item.logo}}" alt="a logo" height="26"></TD>
@@ -31,3 +36,5 @@
     {% endfor %}
     </table>
 </div>
+</body>
+</html>

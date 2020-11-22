@@ -14,17 +14,12 @@ table.dataframe, .dataframe th, .dataframe td {
   font-size: 0.9em;
 }
 
-.male th {
+th {
     background-color: #add8e6;
     color: white;
 }
 
-.female th {
-    background-color: #77dd77;
-    color: white;
-}
-
-tr:nth-child(odd)	{ background-color:#eee; }
+tr:nth-child(odd)	  { background-color:#eee; }
 tr:nth-child(even)	{ background-color:#fff; }
 
-tr:hover            { background-color: #ffff99; }
+tr:hover            { background-color: #80ff80; }
