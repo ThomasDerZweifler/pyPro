@@ -22,4 +22,4 @@ th {
 tr:nth-child(odd)	  { background-color:#eee; }
 tr:nth-child(even)	{ background-color:#fff; }
 
-tr:hover            { background-color: #80ff80; }
+tr:hover            { background-color: #ebe044; }
