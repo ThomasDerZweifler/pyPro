@@ -3,6 +3,7 @@ from flask_swagger import swagger
 import db.dbconnect as Database
 from datetime import datetime
 from urllib.parse import urlparse
+import json
 
 app = Flask(__name__)
 
@@ -75,19 +76,17 @@ def mock(path):
 
     query = request.args
 
-    #return render_template('mock_result.html', request=path, query=query, response="{a json response}")
+
+    items = Database.Database().searchBy(path=path, method ="")
+    if len(items) > 0 :
+        item = items[0]
+        response = item["response"]
+
+        return json.loads(response)
 
     return {
-        "username" : "g.user.username",
-        "e-mail" : "g.user.email"
+        "error" : { "reason" : "path does not exists", "path" : path }
     }
-
-    return jsonify(
-        username="g.user.username",
-        email="g.user.email"
-    )
-
-    return render_template('mock_result.html', response="list of all endpoints")
 
 @app.route('/mockserver/listAllMockEndpoints', methods=['GET'])
 def listAllMockEndpoints():
