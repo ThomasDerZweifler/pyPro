@@ -6,7 +6,7 @@ from urllib.parse import urlparse
 
 app = Flask(__name__)
 
-@app.route('/init_database')
+@app.route('/mockserver/init_database')
 def initDB():
     # use: https://editor.swagger.io/#
     """
@@ -89,14 +89,23 @@ def mock(path):
 
     return render_template('mock_result.html', response="list of all endpoints")
 
-@app.route('/listAllMockEndpoints', methods=['GET'])
+@app.route('/mockserver/listAllMockEndpoints', methods=['GET'])
 def listAllMockEndpoints():
     items = Database.Database().getAllPaths()
     return render_template('endpoints_list.html', items=items)
 
-@app.route('/addMockEndpoint', methods=['POST'])
+@app.route('/mockserver/searchMockEndpoint', methods=['POST'])
+def searchMockEndpoint():
+    if request.method == 'POST':
+        formdata= request.form
+
+        path = formdata['path']
+
+        items = Database.Database().searchBy(path=path, method ="")
+        return render_template('endpoints_list.html', items=items)
+
+@app.route('/mockserver/addMockEndpoint', methods=['POST'])
 def addMockEndpoint():
-    
     if request.method == 'POST':
         formdata= request.form
 
@@ -123,7 +132,7 @@ def addMockEndpoint():
 
         return render_template('result.html', result=text, success=succ)
 
-@app.route("/spec")
+@app.route("/mockserver/spec")
 def spec():
     swag = swagger(app)
     swag['info']['version'] = "1.0"

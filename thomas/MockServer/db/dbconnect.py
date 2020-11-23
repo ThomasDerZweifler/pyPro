@@ -88,6 +88,55 @@ class Database() :
 
         return result
 
+    def searchBy(self, path, method):
+        items = []
+        uuid = 0
+
+        connection = self.getConnection()
+        if(connection == None) : return items
+
+        cursor = connection.cursor()
+
+        where = "WHERE EP_path = '{0}'".format(path)
+
+        query = "SELECT * FROM endpoints {0}".format(where)
+
+        print("mysql query: {0}".format(query))
+
+        cursor.execute(query)
+        print("---> mysql query executed: {0}".format(query))
+        records = cursor.fetchall()
+
+        if(records != None) :
+
+            print("Total rows are:  ", len(records))
+            for row in records:
+                print("Id: ", row[0])
+                print("timestamp: ", row[1])
+                print("description: ", row[2])
+                print("flavor: ", row[3])
+                print("method: ", row[4])
+                print("path: ", row[5])
+                print("response: ", row[6])
+                response = row[6]
+                print("type response: {0}".format(type(response)))
+                print("creation: ", row[7])
+                print("-------------")
+                uuid += 1
+                an_item = dict(logo="swagger_logo.png", timestamp=row[1], creation=row[7], id=str(uuid), flavor=row[3],
+                    description=row[2], method=row[4], path=row[5], response=row[6])
+                items.append(an_item)
+
+        if (cursor):
+            cursor.close()
+            print("mysql cursor is closed")
+        
+        if (connection):
+            connection.close()
+            print("mysql connection is closed")
+
+        return items
+
     def getAllPaths(self) :
         items = []
         uuid = 0

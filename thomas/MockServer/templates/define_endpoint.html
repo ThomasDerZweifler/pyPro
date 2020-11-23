@@ -3,7 +3,7 @@
 
 <h2>Endpoint Definitions</h2>
 
-<form action="/addMockEndpoint" method="POST">
+<form action="/mockserver/addMockEndpoint" method="POST">
  <table border="2">
   <tr>
    <th>Flavor</th>
@@ -39,4 +39,9 @@
  <button type="submit">Endpunkt speichern</button>
 </form>
 
-<input type="button" onclick="window.open('/listAllMockEndpoints','_blank','resizable=yes')" value="List all Endpoints"/>
+<br>
+<input type="button" onclick="window.open('/mockserver/listAllMockEndpoints','_blank','resizable=yes')" value="Liste aller Endpunkte"/>
+<form action="/mockserver/searchMockEndpoint" method="POST">
+  <td><input type="text" size="60" id="path" name="path" value="path3" rows="10" cols="100" /></td>
+  <button type="search">Suchen</button>
+</form>
