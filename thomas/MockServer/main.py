@@ -101,7 +101,7 @@ def searchMockEndpoint():
         path = formdata['path']
 
         items = Database.Database().searchBy(path=path, method ="")
-        return render_template('endpoints_list.html', items=items)
+        return render_template('endpoints_list.html', query=path, items=items)
 
 @app.route('/mockserver/addMockEndpoint', methods=['POST'])
 def addMockEndpoint():

@@ -40,8 +40,8 @@
 </form>
 
 <br>
-<input type="button" onclick="window.open('/mockserver/listAllMockEndpoints','_blank','resizable=yes')" value="Liste aller Endpunkte"/>
-<form action="/mockserver/searchMockEndpoint" method="POST">
+<input type="button" onclick="window.open('/mockserver/listAllMockEndpoints','Liste','resizable=yes')" value="Liste aller Endpunkte"/>
+<form action="/mockserver/searchMockEndpoint" method="POST" target="Suchergebnis">
   <td><input type="text" size="60" id="path" name="path" value="path3" rows="10" cols="100" /></td>
   <button type="search">Suchen</button>
 </form>
