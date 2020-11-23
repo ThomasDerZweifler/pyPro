@@ -1,4 +1,5 @@
 import sys, mysql.connector
+import json
 
 # Connector für MySQL installieren --> in Terminal eingeben
 # C:\Users\gerri\AppData\Local\Microsoft\WindowsApps\PythonSoftwareFoundation.Python.3.8_qbz5n2kfra8p0\python.exe -m pip install mysql-connector-python
@@ -124,7 +125,7 @@ class Database() :
                 print("-------------")
                 uuid += 1
                 an_item = dict(logo="swagger_logo.png", timestamp=row[1], creation=row[7], id=str(uuid), flavor=row[3],
-                    description=row[2], method=row[4], path=row[5], response=row[6])
+                    description=row[2], method=row[4], path=row[5], response=response)
                 items.append(an_item)
 
         if (cursor):

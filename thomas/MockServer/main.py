@@ -82,7 +82,14 @@ def mock(path):
         item = items[0]
         response = item["response"]
 
-        return json.loads(response)
+        print("response:{0}".format(response))
+
+        try :
+          response = json.loads(response)
+        except :
+          return { "error" : { "reason" : "json parse error" } }
+
+        return response
 
     return {
         "error" : { "reason" : "path does not exists", "path" : path }
