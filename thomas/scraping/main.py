@@ -14,6 +14,13 @@ Info:
     https://playmodb.org/
     https://klicky-ersatzteile.de/
 
+
+    getOpt:
+    https://www.tutorialspoint.com/python/python_command_line_arguments.htm
+
+    logging:
+    https://realpython.com/python-logging/
+
     Html-XML-Scraper:
     http://zetcode.com/python/beautifulsoup/
 
