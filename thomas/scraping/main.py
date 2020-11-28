@@ -181,6 +181,10 @@ Demo output:
 python main.py -h
 scraper.py -h -l <name of log file> -d <name of database file> -s <start set number> -c <set count>
 
+python main.py -help
+scraper.py -h -l <name of log file> -d <name of database file> -s <start set number> -c <set count>
+
+
 python main.py -l app.log -s 100 -c 2
 dbFile = ; startSet = 100; setsCount = 2
 ...
