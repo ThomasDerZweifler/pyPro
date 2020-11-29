@@ -46,9 +46,11 @@ import logging
 
 import requests
 
+from sql import ScrapingDB
+
 def main(argv):
-    logFile = ''
-    dbFile = ''
+    logFile = None
+    dbFile = None
     fromSetNumber = 0
     setsCount = 0
     try:
@@ -71,48 +73,25 @@ def main(argv):
 
     print("dbFile = {0}; startSet = {1}; setsCount = {2}".format(dbFile, fromSetNumber, setsCount))
 
-    if logFile != "" :
-        handler = logging.FileHandler(logFile)
-        handler.setLevel(logging.DEBUG)
-        logging.getLogger('sqlalchemy').addHandler(handler)
+    scrapingDB = ScrapingDB()
+    #scrapingDB.create(dbFile=dbFile, logFile=logFile)
+    scrapingDB.create()
+    scrapingDB.insertAssociation('setName1','partName1')
+    scrapingDB.insertAssociation('setName1','partName2')
+    scrapingDB.insertAssociation('setName2','partName1')
 
-    # external sqlite db
-    engine = create_engine('sqlite:///{0}'.format(dbFile), echo=True)
+    scrapingDB.insertAssociation('setName1','partName1')
+    scrapingDB.insertAssociation('setName1','partName2')
+    scrapingDB.insertAssociation('setName2','partName1')
 
-    isInMemory = dbFile == ""
-    if isInMemory:
-        # for test use in memory db (will not survive):
-        engine = create_engine('sqlite:///:memory:', echo=True)
-
-    metadata = MetaData()
-    partsToSets = Table('PartsToSets', metadata,
-        Column('setName', String),
-        Column('partName', String)
-    )
-    metadata.create_all(engine)
-
-    ins = partsToSets.insert().values(setName='setName1', partName='partName1')
-    ins.compile().params
-    conn = engine.connect()
-    result = conn.execute(ins)
-    ins.bind = engine
-
-    ins = partsToSets.insert().values(setName='setName2', partName='partName2')
-    ins.compile().params
-    conn = engine.connect()
-    result = conn.execute(ins)
-    ins.bind = engine
-
-    s = select([partsToSets])
-    result = conn.execute(s)
+    result = scrapingDB.selectAllAssociations()
 
     for row in result:
         print(row)
 
     print("requests version: {0}".format(requests.__version__))
     print("BeautifulSoup version: {0}".format(bs4.__version__))
-    print("logging version: {0}; logging into '{1}' ".format(logging.__version__, logFile))
-    print("SQLAlchemy version: {0}; db file: '{1}'".format(sqlalchemy.__version__, dbFile))
+    scrapingDB.info()
 
     # Problem: setNumber = 7416x
    
@@ -144,10 +123,13 @@ class Scraper():
     def getKlickyContained(self) :
         return self.klickyContained
 
-    def getDetailsByPartNumber(self, partNumber):
+    def getDetailsByPartNumber(self, setNumber, partNumber):
         pn = partNumber.get_text()
         partnumberUrl = "https://playmodb.org/cgi-bin/showpart.pl?partnum={0}".format(pn)
         print("\n> get {0}".format(partnumberUrl))
+
+        print("\n setNumber = {0}".format(setNumber))
+
         detail = requests.get(partnumberUrl)
         soupDetail = BeautifulSoup(detail.content, 'html.parser')
         title = soupDetail.find("title").get_text()
@@ -173,7 +155,11 @@ class Scraper():
     def getDetailsBySetNumber(self, setNumber):
         partNumbers = Scraper().getPartNumbersBySetNumber(setNumber)
         for partNumber in partNumbers :
-            self.getDetailsByPartNumber(partNumber)
+            # save to db (assocaition partNUmber to setNumber)
+
+            print("save assocoation partNumber={0} to setNumber={1}".format(partNumber.get_text(),setNumber))
+
+            # self.getDetailsByPartNumber(setNumber, partNumber)
         
         return self.totalParts
 
