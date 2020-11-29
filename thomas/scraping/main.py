@@ -5,10 +5,13 @@ Scraping parts from https://playmodb.org
 Installations:
     pip3 install beautifulsoup4
     pip3 install requests
-    pip3 install sqlalchemy
+    # pip3 install sqlalchemy
 
-Starts with:
-    python -u "/Users/thomasfunke/git/pyPro/thomas/scraping/main.py"
+Starts with e.g.:
+    python main.py -s 6000 -c 10
+
+    python main.py -s 6000 -c 10 > assciations.csv
+
 
 Info:
     https://playmodb.org/
@@ -35,18 +38,18 @@ Info:
 '''
 import sys, getopt
 
-import sqlalchemy
-from sqlalchemy import create_engine, MetaData, Table, Column, Integer, String, ForeignKey
-from sqlalchemy.sql import select
+# import sqlalchemy
+# from sqlalchemy import create_engine, MetaData, Table, Column, Integer, String, ForeignKey
+# from sqlalchemy.sql import select
 
 from bs4 import BeautifulSoup
 import bs4
 
-import logging
+# import logging
 
 import requests
 
-from sql import ScrapingDB
+# from sql import ScrapingDB
 
 def main(argv):
     logFile = None
@@ -71,7 +74,9 @@ def main(argv):
         elif opt in ("-c", "--setsCount"):
             setsCount = int(arg, base=10)
 
-    print("dbFile = {0}; startSet = {1}; setsCount = {2}".format(dbFile, fromSetNumber, setsCount))
+    # print("dbFile = {0}; startSet = {1}; setsCount = {2}".format(dbFile, fromSetNumber, setsCount))
+
+    '''
 
     scrapingDB = ScrapingDB()
     #scrapingDB.create(dbFile=dbFile, logFile=logFile)
@@ -93,6 +98,8 @@ def main(argv):
     print("BeautifulSoup version: {0}".format(bs4.__version__))
     scrapingDB.info()
 
+    '''
+
     # Problem: setNumber = 7416x
    
     toSetNumer = fromSetNumber + setsCount
@@ -104,11 +111,11 @@ def main(argv):
     scraper = Scraper()
 
     for setNumber in range( fromSetNumber, toSetNumer ):
-        print("\n> setNumber = {0}".format(setNumber))
+        #print("\n> setNumber = {0}".format(setNumber))
         totalParts += scraper.getDetailsBySetNumber(setNumber)
 
-    print("\nfrom set number = {0} scraping {1} set(s) and totalParts = {2} (klicky contained: {3})".
-        format(fromSetNumber, toSetNumer-fromSetNumber,totalParts, scraper.getKlickyContained()))
+    #print("\nfrom set number = {0} scraping {1} set(s) and totalParts = {2} (klicky contained: {3})".
+    #    format(fromSetNumber, toSetNumer-fromSetNumber,totalParts, scraper.getKlickyContained()))
 
 
 class Scraper():
@@ -157,7 +164,7 @@ class Scraper():
         for partNumber in partNumbers :
             # save to db (assocaition partNUmber to setNumber)
 
-            print("save assocoation partNumber={0} to setNumber={1}".format(partNumber.get_text(),setNumber))
+            print("{0};{1}".format(partNumber.get_text(),setNumber))
 
             # self.getDetailsByPartNumber(setNumber, partNumber)
         
