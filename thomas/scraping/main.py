@@ -13,6 +13,10 @@ Starts with e.g.:
     python main.py -s 6000 -c 10 > assciations.csv
 
 
+append next bulk:
+    python main.py -s 7000 -c 10 >> assciations.csv
+
+
 Info:
     https://playmodb.org/
     https://klicky-ersatzteile.de/
