@@ -1,4 +1,3 @@
-dbFile = None; startSet = 6000; setsCount = 10
 30 51 0440;6000
 30 51 1060;6000
 30 51 1260;6000
@@ -107,5 +106,3 @@ dbFile = None; startSet = 6000; setsCount = 10
 30 22 5983;6006
 30 23 3340;6006
 30 60 3822;6006
-
-from set number = 6000 scraping 10 set(s) and totalParts = 0 (klicky contained: 0)
