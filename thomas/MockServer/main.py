@@ -7,6 +7,9 @@ import json
 
 app = Flask(__name__)
 
+# read swagger yaml
+# https://connexion.readthedocs.io/en/latest/quickstart.html
+
 @app.route('/mockserver/init_database')
 def initDB():
     # use: https://editor.swagger.io/#
