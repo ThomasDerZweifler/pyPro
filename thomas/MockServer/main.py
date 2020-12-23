@@ -120,7 +120,7 @@ def addMockEndpoint():
         EP_method = formdata['method']
         EP_path = formdata['request']
         parts = urlparse(EP_path)
-        EP_json = formdata['response']
+        EP_json = formdata['response'].replace("\\r", "").replace("\\n", "");
 
         # current date and time
         now = datetime.now()
@@ -145,4 +145,4 @@ def spec():
     swag['info']['title'] = "My API"
     return jsonify(swag)
 
-app.run(debug=True)
+app.run(host='0.0.0.0' , debug=True) # set host for external access by ip address (ifconfig en0)
