@@ -139,18 +139,46 @@ class Scraper():
         partnumberUrl = "https://playmodb.org/cgi-bin/showpart.pl?partnum={0}".format(pn)
         print("\n> get {0}".format(partnumberUrl))
 
-        print("\n setNumber = {0}".format(setNumber))
+        print("\nSet Number: {0};".format(setNumber))
 
         detail = requests.get(partnumberUrl)
         soupDetail = BeautifulSoup(detail.content, 'html.parser')
         title = soupDetail.find("title").get_text()
-        print(title)
+        print("Title: {0};".format(title))
 
         # https://playmodb.org/cgi-bin/category.pl?cat=Decoration;subcat=Flag
 
         # first href on page
         category = soupDetail.find('a', href=True).get_text()
-        print(category)
+        print("Category: {0};".format(category))
+
+        '''
+        <p style="font-size:smaller;font-style-italic;">German Name: PC-Tastatur</p>
+        <p style="font-size:smaller;font-style-italic;">French Name: Clavier d'ordinateur</p>
+        <p style="font-size:smaller;font-style-italic;">Spanish Name: TECLADO ORDENADOR 142</p>
+        <p style="font-size:smaller;font-style-italic;">Official English Name: KEYBOARD: BASE,DK.GRY.</p>
+        '''
+        ps = soupDetail.findAll("p", {"style":"font-size:smaller;font-style-italic;"})
+        for p in enumerate(ps):
+            s = str(p[1])
+            s = s.replace('<p style="font-size:smaller;font-style-italic;">',"").replace('</p>',"")
+
+            print ("{0};".format(s))
+
+        '''
+        <span style="white-space: nowrap"><strong>Part Number:</strong> 30 03 2340<br>
+        <strong>Colour:</strong> dark grey</span>
+        '''
+
+        spans = soupDetail.findAll("span", {"style":"white-space: nowrap"})
+        for span in enumerate(spans):
+            #s = stat.replace('<span style="white-space: nowrap">',"")
+            s = str(span[1])
+            s = s.replace('<span style="white-space: nowrap">',"").replace('<strong>',"")
+            s = s.replace('</strong>',"").replace('</span>',"")
+            s = s.replace('<br/>',";")
+
+            print ("{0};".format(s))
 
         if category == "See Klicky details" :
             self.klickyContained += 1
@@ -168,9 +196,9 @@ class Scraper():
         for partNumber in partNumbers :
             # save to db (assocaition partNUmber to setNumber)
 
-            print("{0};{1}".format(partNumber.get_text(),setNumber))
+            #print("{0};{1}".format(partNumber.get_text(),setNumber))
 
-            # self.getDetailsByPartNumber(setNumber, partNumber)
+            self.getDetailsByPartNumber(setNumber, partNumber)
         
         return self.totalParts
 
